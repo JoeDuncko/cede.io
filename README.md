@@ -11,5 +11,6 @@ To install on Mac w/ homebrew
 - Make sure your npm permissions are set up correctly https://docs.npmjs.com/getting-started/fixing-npm-permissions
 - Navigate to the repository in your terminal
 - `npm install`
+- `mongod`
 - `npm start`
 - cede.io should now be running on localhost:3000
