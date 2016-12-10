@@ -4,11 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var expressSession = require('express-session');
 
 var mongoose = require('mongoose');
+//mongodb - this will need changed when not run locally
+mongoose.connect('mongodb://localhost/cede');
 
-var routes = require('./routes/index');
-
+//init express app
 var app = express();
 
 // view engine setup
@@ -23,6 +26,26 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(cookieParser());
+
+app.use(expressSession({
+    secret: 'not so secret key I am using for now',
+    resave: false,
+    saveUninitialized: false
+}));
+
+//passport
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Using the flash middleware provided by connect-flash to store messages in session
+// and displaying in templates
+var flash = require('connect-flash');
+app.use(flash());
+
+// Initialize Passport
+var initPassport = require('./passport/init');
+initPassport(passport);
+
 app.use(require('node-sass-middleware')({
     src: path.join(__dirname, 'public'),
     dest: path.join(__dirname, 'public'),
@@ -31,10 +54,9 @@ app.use(require('node-sass-middleware')({
 }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+//router w/ auth support
+var routes = require('./routes/index')(passport);
 app.use('/', routes);
-
-//mongodb
-mongoose.connect('mongodb://localhost/cede');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
