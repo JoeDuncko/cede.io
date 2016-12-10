@@ -24,7 +24,7 @@ var towerSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var Tower = mongoose.model('Tower', userSchema);
+var Tower = mongoose.model('Tower', towerSchema);
 
 // make this available to our users in our Node applications
 module.exports = Tower;

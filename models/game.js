@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var ObjectId = mongoose.Schema.Types.ObjectId;
 
 // create a schema
 var gameSchema = new Schema({
@@ -25,7 +26,7 @@ var gameSchema = new Schema({
         required: true
     },
     towers: [
-        tower: {
+        {
             type: {
                 type: String,
                 required: true
@@ -45,7 +46,7 @@ var gameSchema = new Schema({
         }
     ],
     enemies: [
-        enemy: {
+        {
             type: {
                 type: String,
                 required: true
@@ -80,7 +81,7 @@ var gameSchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var Game = mongoose.model('Game', userSchema);
+var Game = mongoose.model('Game', gameSchema);
 
 // make this available to our users in our Node applications
 module.exports = Game;

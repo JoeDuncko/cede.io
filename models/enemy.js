@@ -16,7 +16,7 @@ var enemySchema = new Schema({
         type: Number,
         required: true
     },
-    range: {
+    speed: {
         type: Number,
         required: true
     }
@@ -24,7 +24,7 @@ var enemySchema = new Schema({
 
 // the schema is useless so far
 // we need to create a model using it
-var Enemy = mongoose.model('Enemy', userSchema);
+var Enemy = mongoose.model('Enemy', enemySchema);
 
 // make this available to our users in our Node applications
 module.exports = Enemy;
