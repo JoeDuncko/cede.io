@@ -9,7 +9,7 @@ var isAuthenticated = function(req, res, next) {
         return next();
     // if the user is not authenticated then redirect him to the login page
     res.redirect('/');
-}
+};
 
 module.exports = function(passport) {
 
@@ -23,7 +23,7 @@ module.exports = function(passport) {
 
     /* Handle Login POST */
     router.post('/login', passport.authenticate('login', {
-        successRedirect: '/home',
+        successRedirect: '/game',
         failureRedirect: '/',
         failureFlash: true
     }));
@@ -37,14 +37,14 @@ module.exports = function(passport) {
 
     /* Handle Registration POST */
     router.post('/signup', passport.authenticate('signup', {
-        successRedirect: '/home',
+        successRedirect: '/game',
         failureRedirect: '/signup',
         failureFlash: true
     }));
 
-    /* GET Home Page */
-    router.get('/home', isAuthenticated, function(req, res) {
-        res.render('home', {
+    /* GET Game Page */
+    router.get('/game', isAuthenticated, function(req, res) {
+        res.render('game', {
             user: req.user
         });
     });
