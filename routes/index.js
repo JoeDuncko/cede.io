@@ -42,6 +42,12 @@ module.exports = function(passport) {
         failureFlash: true
     }));
 
+    /* Handle Logout */
+    router.get('/signout', function(req, res) {
+        req.logout();
+        res.redirect('/');
+    });
+
     /* GET Game Page */
     router.get('/game', isAuthenticated, function(req, res) {
         res.render('game', {
@@ -49,11 +55,21 @@ module.exports = function(passport) {
         });
     });
 
-    /* Handle Logout */
-    router.get('/signout', function(req, res) {
-        req.logout();
-        res.redirect('/');
+    /* GET game list as JSON. */
+
+    router.get('/game/list', isAuthenticated, function(req, res) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ a: 1 }));
     });
+
+    /* GET user profile as JSON. Accepts username. */
+
+    /* POST create game as JSON. Accepts mode. Should accept an array of usernames too in the future. */
+
+    /* GET game endpoint as JSON. */
+    /* This sets up the game - from here realtime.js takes over to convey events in real time between clients */
+
+    /* GET game review endpoint as JSON. Accept gameId. */
 
     return router;
 };
