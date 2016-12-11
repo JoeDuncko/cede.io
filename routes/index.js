@@ -64,12 +64,25 @@ module.exports = function(passport) {
 
     /* GET user profile as JSON. Accepts username. */
 
+    router.get('/game/user/:userId', isAuthenticated, function(req, res) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ a: req.params }));
+    });
+
     /* POST create game as JSON. Accepts mode. Should accept an array of usernames too in the future. */
 
     /* GET game endpoint as JSON. */
     /* This sets up the game - from here realtime.js takes over to convey events in real time between clients */
+    router.get('/game/:gameId', isAuthenticated, function(req, res) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ a: req.params }));
+    });
 
     /* GET game review endpoint as JSON. Accept gameId. */
+    router.get('/game/:gameId/review', isAuthenticated, function(req, res) {
+        res.setHeader('Content-Type', 'application/json');
+        res.send(JSON.stringify({ a: req.params }));
+    });
 
     return router;
 };
