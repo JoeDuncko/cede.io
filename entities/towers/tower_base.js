@@ -1,3 +1,5 @@
+// for now we aren't going to formally extend these, but I'll use them as a base
+
 var towerBase = {
     name: {
         type: String,

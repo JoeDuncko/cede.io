@@ -1,3 +1,5 @@
+// for now we aren't going to formally extend these, but I'll use them as a base
+
 var enemyBase = {
     name: {
         type: String,
@@ -5,6 +7,10 @@ var enemyBase = {
         unique: true
     },
     damage: {
+        type: Number,
+        required: true,
+    },
+    maxHealth: {
         type: Number,
         required: true,
     },

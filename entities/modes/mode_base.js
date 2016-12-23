@@ -1,3 +1,5 @@
+// for now we aren't going to formally extend these, but I'll use them as a base
+
 var modeBase = {
     name: {
         type: String,
@@ -8,7 +10,7 @@ var modeBase = {
         type: Number,
         required: true,
     },
-    playerHealth: {
+    playerMaxHealth: {
         type: Number,
         required: true
     },
