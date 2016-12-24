@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
+var Game = require('../models/game');
+
+var survivalMode = require('../entities/modes/mode_survival');
+
 var isAuthenticated = function(req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler
     // Passport adds this method to request object. A middleware is allowed to add properties to
@@ -56,20 +60,41 @@ module.exports = function(passport) {
     });
 
     /* GET game list as JSON. */
-
     router.get('/game/list', isAuthenticated, function(req, res) {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({ a: 1 }));
+
+        Game.listGamesByUser('joe', function(err, games){
+            console.log('results', games);
+            res.send(JSON.stringify(games));
+        });
     });
 
     /* GET user profile as JSON. Accepts username. */
-
-    router.get('/game/user/:userId', isAuthenticated, function(req, res) {
+    router.get('/game/user/:userName', isAuthenticated, function(req, res) {
         res.setHeader('Content-Type', 'application/json');
         res.send(JSON.stringify({ a: req.params }));
     });
 
     /* POST create game as JSON. Accepts mode. Should accept an array of usernames too in the future. */
+    router.post('/game/create', isAuthenticated, function (req, res) {
+        res.setHeader('Content-Type', 'application/json');
+
+        //will wanna rewrite how this works to make baseHealth is determined by mode
+        var newGame = new Game({
+            ownerUsername: req.user.username,
+            mode: 'Survival',
+            baseHealth: 10,
+        });
+        newGame.save(function (err) {
+            if (err) {
+                console.log('err', err);
+            }
+            // saved!
+        });
+
+        res.send(JSON.stringify(newGame));
+
+    });
 
     /* GET game endpoint as JSON. */
     /* This sets up the game - from here realtime.js takes over to convey events in real time between clients */

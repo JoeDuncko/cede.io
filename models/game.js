@@ -1,15 +1,9 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-var ObjectId = mongoose.Schema.Types.ObjectId;
 
 // create a schema
 var gameSchema = new Schema({
-    id: {
-        type: ObjectId,
-        required: true,
-        unique: true
-    },
-    ownerUser: {
+    ownerUsername: {
         type: String,
         required: true,
     },
@@ -19,11 +13,13 @@ var gameSchema = new Schema({
     },
     round: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     startDate: {
         type: Date,
-        required: true
+        required: true,
+        default: Date.now
     },
     towers: [
         {
@@ -71,13 +67,24 @@ var gameSchema = new Schema({
     },
     resources: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     isGameOver: {
         type: Boolean,
-        required: true
+        required: true,
+        default: false
     }
 });
+
+gameSchema.statics.listGamesByUser = function(ownerUsername, callback) {
+    return this.find(
+        {
+            ownerUsername: ownerUsername
+        },
+        callback
+    );
+};
 
 // the schema is useless so far
 // we need to create a model using it
