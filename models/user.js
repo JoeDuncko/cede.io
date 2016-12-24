@@ -19,6 +19,15 @@ var userSchema = new Schema({
     }
 });
 
+userSchema.statics.getUserByUsername = function(username, callback) {
+    return this.find(
+        {
+            username: username
+        },
+        callback
+    ).select('-password');
+};
+
 // the schema is useless so far
 // we need to create a model using it
 var User = mongoose.model('User', userSchema);

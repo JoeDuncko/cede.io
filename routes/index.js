@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var Game = require('../models/game');
+var User = require('../models/user');
 
 var survivalMode = require('../entities/modes/mode_survival');
 
@@ -69,9 +70,12 @@ module.exports = function(passport) {
     });
 
     /* GET user profile as JSON. Accepts username. */
-    router.get('/game/user/:userName', isAuthenticated, function(req, res) {
+    router.get('/game/user/:username', isAuthenticated, function(req, res) {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({ a: req.params }));
+
+        User.getUserByUsername(req.params.username, function(err, user){
+            res.send(JSON.stringify(user));
+        });
     });
 
     /* POST create game as JSON. Accepts mode. Should accept an array of usernames too in the future. */
