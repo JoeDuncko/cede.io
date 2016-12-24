@@ -64,7 +64,6 @@ module.exports = function(passport) {
         res.setHeader('Content-Type', 'application/json');
 
         Game.listGamesByUser('joe', function(err, games){
-            console.log('results', games);
             res.send(JSON.stringify(games));
         });
     });
@@ -100,7 +99,10 @@ module.exports = function(passport) {
     /* This sets up the game - from here realtime.js takes over to convey events in real time between clients */
     router.get('/game/:gameId', isAuthenticated, function(req, res) {
         res.setHeader('Content-Type', 'application/json');
-        res.send(JSON.stringify({ a: req.params }));
+
+        Game.getGameById(req.params.gameId, function(err, game){
+            res.send(JSON.stringify(game));
+        });
     });
 
     /* GET game review endpoint as JSON. Accept gameId. */

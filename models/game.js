@@ -86,6 +86,15 @@ gameSchema.statics.listGamesByUser = function(ownerUsername, callback) {
     );
 };
 
+gameSchema.statics.getGameById = function(gameId, callback) {    
+    return this.find(
+        {
+            _id: gameId
+        },
+        callback
+    );
+};
+
 // the schema is useless so far
 // we need to create a model using it
 var Game = mongoose.model('Game', gameSchema);
