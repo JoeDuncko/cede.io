@@ -92,7 +92,6 @@ module.exports = function(passport) {
             if (err) {
                 console.log('err', err);
             }
-            // saved!
         });
 
         res.send(JSON.stringify(newGame));
