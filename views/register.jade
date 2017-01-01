@@ -2,16 +2,30 @@ extends layout
 
 block content
     div.container
+        h1.header.center register
         div.row
-            div.col-sm-6.col-md-4.col-md-offset-4
-                h1.text-center.login-title Registration Details
-                    div.signup-wall
-                        form(class='form-signin', action='/signup', method='POST')
-                            input(type='text', name='username', class='form-control', placeholder='Username',required, autofocus)
-                            input(type='password', name='password', class='form-control nomargin', placeholder='Password', required)
-                            input(type='email', name='email', class='form-control', placeholder='Email',required)
-                            button(class='btn btn-lg btn-primary btn-block', type='submit') Register
-                            span.clearfix
-                    #message
-                        if message
-                            h1.text-center.error-message #{message}
+            div.col.offset-s2.s8.offset-m4.m4
+                form(class='form-signin', action='/signup', method='POST')
+                    div.row
+                        div.input-field
+                            input.validate(type='text', name='username', required, autofocus)
+                            label(for='username') username
+                    div.row
+                        div.input-field
+                            input(type='password', name='password', required)
+                            label(for='password') password
+                    div.row
+                        div.input-field
+                            input(type='password', name='password', required)
+                            label(for='password') confirm password
+                    div.row
+                        div.input-field
+                            input(type='email', name='email', required)
+                            label(for='email') email
+                    div.row
+                        button.black.btn.waves-effect.waves-light(type='submit') register
+            #message
+                if message
+                    h1.text-center.error-message #{message}
+        div.row.center
+            a(href='/') log in with an existing account

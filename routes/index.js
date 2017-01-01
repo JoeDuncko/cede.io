@@ -44,7 +44,7 @@ module.exports = function(passport) {
     router.post('/signup', passport.authenticate('signup', {
         successRedirect: '/game',
         failureRedirect: '/signup',
-        failureFlash: true
+        failureFlash: true,
     }));
 
     /* Handle Logout */
