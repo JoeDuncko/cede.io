@@ -1,7 +1,7 @@
 //based off of https://code.tutsplus.com/tutorials/authenticating-nodejs-applications-with-passport--cms-21619
 
 var login = require('./login');
-var signup = require('./signup');
+var register = require('./register');
 var User = require('../models/user');
 
 module.exports = function(passport){
@@ -19,8 +19,8 @@ module.exports = function(passport){
         });
     });
 
-    // Setting up Passport Strategies for Login and SignUp/Registration
+    // Setting up Passport Strategies for Login and Registration
     login(passport);
-    signup(passport);
+    register(passport);
 
 };

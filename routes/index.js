@@ -22,6 +22,7 @@ module.exports = function(passport) {
     router.get('/', function(req, res) {
         // Display the Login page with any flash message, if any
         res.render('index', {
+            title: 'cede.io',
             message: req.flash('message')
         });
     });
@@ -34,16 +35,17 @@ module.exports = function(passport) {
     }));
 
     /* GET Registration Page */
-    router.get('/signup', function(req, res) {
+    router.get('/register', function(req, res) {
         res.render('register', {
+            title: 'register | cede.io',
             message: req.flash('message')
         });
     });
 
     /* Handle Registration POST */
-    router.post('/signup', passport.authenticate('signup', {
+    router.post('/register', passport.authenticate('signup', {
         successRedirect: '/game',
-        failureRedirect: '/signup',
+        failureRedirect: '/register',
         failureFlash: true,
     }));
 
