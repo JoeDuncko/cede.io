@@ -1,0 +1,8 @@
+# Express session secret - make up one to secure your sessions
+SESSION_SECRET=SOMETHING
+
+# mongodb URL
+MONGODB_URI=mongodb://SOMETHING
+
+# if you're in development, uncomment this
+#env=development

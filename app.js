@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 
 app.use(expressSession({
-    secret: 'not so secret key I am using for now',
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
 }));
