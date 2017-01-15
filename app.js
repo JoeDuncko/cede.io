@@ -1,3 +1,7 @@
+//loads environment variables
+var dotenv = require('dotenv');
+dotenv.load();
+
 const fs = require('fs');
 
 var express = require('express');
@@ -42,7 +46,7 @@ var expressSession = require('express-session');
 
 var mongoose = require('mongoose');
 //mongodb - this will need changed when not run locally
-mongoose.connect('mongodb://localhost/cede');
+mongoose.connect(process.env.MONGODB_URI);
 
 //init express app
 var app = express();
