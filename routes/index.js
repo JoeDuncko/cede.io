@@ -43,7 +43,7 @@ module.exports = function(passport) {
     });
 
     /* Handle Registration POST */
-    router.post('/register', passport.authenticate('signup', {
+    router.post('/register', passport.authenticate('register', {
         successRedirect: '/game',
         failureRedirect: '/register',
         failureFlash: true,
