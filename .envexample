@@ -2,7 +2,7 @@
 SESSION_SECRET=SOMETHING
 
 # mongodb URL
-MONGODB_URI=mongodb://SOMETHING
+MONGODB_URI=mongodb://localhost/cede
 
 # if you're in development, uncomment this
 #env=development
