@@ -24,6 +24,9 @@ module.exports = function(passport){
                     if (user) {
                         console.log('User already exists with username: '+username);
                         return done(null, false, req.flash('message','User Already Exists'));
+                    } else if (req.param('password') !== req.param('confirmpassword')) {
+                        console.log('Passwords do not match');
+                        return done(null, false, req.flash('message','Passwords do not match'));
                     } else {
                         // if there is no user with that email
                         // create the user
