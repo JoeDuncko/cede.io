@@ -15,3 +15,10 @@ To install on Mac w/ homebrew
 - `mongod`
 - `npm start`
 - cede.io should now be running on localhost:3000
+
+To install on Heroku
+
+- Create a Heroku App
+- Add a mLab MongoDB Heroku add-on to the app
+- Push the repository to Heroku
+- That's it!
