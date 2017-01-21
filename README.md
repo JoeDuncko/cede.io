@@ -18,7 +18,8 @@ To install on Mac w/ homebrew
 
 To install on Heroku
 
-- Create a Heroku App
+- Create a Heroku app
 - Add a mLab MongoDB Heroku add-on to the app
+- Add a `SESSION_SECRET` to your Heroku app's environment variables
 - Push the repository to Heroku
 - That's it!
