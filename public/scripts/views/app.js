@@ -2,13 +2,15 @@
 define([
     'jquery',
     'underscore',
-    'backbone'
+    'backbone',
+    'handlebars'
     // 'collections/todos',
     // 'views/todos'
 ], function(
     $,
     _,
-    Backbone
+    Backbone,
+    Handlebars
     // Todos,
     // TodoView
 ) {
@@ -53,7 +55,7 @@ define([
         // of the app doesn't change.
         render: function() {
             console.log("hi");
-            
+
             // var completed = Todos.completed().length;
             // var remaining = Todos.remaining().length;
             //

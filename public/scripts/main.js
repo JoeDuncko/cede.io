@@ -17,10 +17,6 @@ require.config({
                 'jquery'
             ],
             exports: 'Backbone'
-        },
-        backboneLocalstorage: {
-            deps: ['backbone'],
-            exports: 'Store'
         }
     },
     paths: {
@@ -29,7 +25,9 @@ require.config({
         //underscore: 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min',
         underscore: 'https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore',
         //backbone: 'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min',
-        backbone: 'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone'
+        backbone: 'https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone',
+        //handlebars: 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.runtime.amd.min'
+        handlebars: 'https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.runtime.amd'
     }
 });
 
@@ -37,7 +35,11 @@ require([
     'backbone',
     'views/app',
     'routers/router'
-], function(Backbone, AppView, Workspace) {
+], function(
+    Backbone,
+    AppView,
+    Workspace
+) {
     /*jshint nonew:false*/
     // Initialize routing and start Backbone.history()
     new Workspace();
