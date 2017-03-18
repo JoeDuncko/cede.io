@@ -1,8 +1,11 @@
 # cede.io
 A true time tower defense browser game
 
-## cede.io
-To install on Mac w/ homebrew
+http://cede.io/ (the home page) is hosted via GitHub Pages in the `gh-pages` branch of this repository
+
+http://cedegame.com/ (the game itself) is hosted via Heroku and worked on in the `master` branch of this repository
+
+## To install on Mac w/ homebrew
 
 - Install homebrew http://brew.sh/
 - Clone the repository
@@ -11,9 +14,9 @@ To install on Mac w/ homebrew
 - Make sure your npm permissions are set up correctly https://docs.npmjs.com/getting-started/fixing-npm-permissions
 - Create up a `.env` file in the repository based off the included `.envexample` file
 - Navigate to the repository in your terminal
-- `npm install`
-- `mongod`
-- `npm start`
+- Run `npm install` to install all requirements
+- In a separate terminal, start MongoDB via `mongod`
+- Go back to the terminal that's inside the repository, and run `npm start`
 - cede.io should now be running on localhost:3000
 
 To install on Heroku
