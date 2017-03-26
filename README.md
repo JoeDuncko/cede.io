@@ -19,7 +19,7 @@ http://cedegame.com/ (the game itself) is hosted via Heroku and worked on in the
 - Go back to the terminal that's inside the repository, and run `npm start`
 - cede.io should now be running on localhost:3000
 
-To install on Heroku
+## To install on Heroku
 
 - Create a Heroku app
 - Add a mLab MongoDB Heroku add-on to the app
