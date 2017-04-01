@@ -1,38 +1,34 @@
 class GamesList extends React.Component { // eslint-disable-line no-unused-vars
-    constructor(props) {
-        super(props);
-        this.state = {
-            games: []
-        };
-    }
-
-    componentDidMount() {
-        fetch('/game/list', {
-            credentials: 'include'
-        })
-            .then((response) => {
-                return response.json();
-            })
-            .then(response => {
-                this.setState({
-                    games: response
-                });
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
-    }
-
     render() {
-        console.log (this.state);
         return(
-            <nav>
-                <div className="nav-wrapper black">
-                    <Logo />
-                    <Username games={user.username} />
+            <div className="container">
+                <div className="row section">
+                    <div className="col s12 right-align">
+                        <button className="btn waves-effect waves-light black" onClick={this.makeNewGame}>
+                            New Game
+                        </button>
+                    </div>
                 </div>
-            </nav>
+                <div className="row">
+                    <table className="bordered highlight">
+
+                        <thead>
+                            <tr>
+                                <th>Game status</th>
+                                <th>Round</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <GamesListTable />
+
+                    </table>
+                </div>
+            </div>
         );
     }
 
+    makeNewGame() {
+        console.log("hi");
+    }
 }
