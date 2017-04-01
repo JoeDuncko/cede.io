@@ -12,6 +12,18 @@ block content
                                 li Email    ---> #{user.email}
                         a(href='/signout', class='text-center new-account') Sign Out
                         
+    div.container
+        div.row
+            div#root
+                        
 block javascript
-    //- script(data-main='js/main', src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.min.js')
-    script(data-main='/scripts/main', src='https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.2/require.js')
+    //- script(data-main='js/main', src='https://unpkg.com/react@15/dist/react.min.js')
+    script(data-main='/scripts/main', src='https://unpkg.com/react@15/dist/react.js')
+    //- script(data-main='js/main', src='https://unpkg.com/react-dom@15/dist/react-dom.min.js')
+    script(data-main='/scripts/main', src='https://unpkg.com/react-dom@15/dist/react-dom.js')
+    //Yes, I'm using babel on the client side. Yes, I know it's slow and horrible.
+    //Sorry, I added react into this stack and don't feel like setting up webpack and the other
+    //5000 things necessary to automate everything yet.
+    //- script(data-main='js/main', src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js')
+    script(data-main='/scripts/main', src='https://unpkg.com/babel-standalone@6.15.0/babel.js')
+    script(data-main='/scripts/main',type="text/babel", src='/scripts/main.js')
