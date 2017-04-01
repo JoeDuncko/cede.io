@@ -3,26 +3,19 @@ class Header extends React.Component { // eslint-disable-line no-unused-vars
         return(
             <nav>
                 <div className="nav-wrapper black">
-                    <Logo />
-                    <Username username={user.username} />
+                    <a className="brand-logo" href="/">cede.io</a>
+                    <ul id="nav-mobile" className="right">
+                        <li><a onClick={this.toProfile} href="#">{user.username}</a></li>
+                    </ul>
                 </div>
             </nav>
         );
     }
-}
 
-class Logo extends React.Component {
-    render() {
-        return <a className="brand-logo" href="/">cede.io</a>;
-    }
-}
+    toProfile(event){
+        event.preventDefault();
+        console.log("go to profile");
 
-class Username extends React.Component {
-    render() {
-        return(
-            <ul id="nav-mobile" className="right">
-                <li><a href="/profile">{this.props.username}</a></li>
-            </ul>
-        );
+        ReactDOM.unmountComponentAtNode(document.getElementById('content'));
     }
 }

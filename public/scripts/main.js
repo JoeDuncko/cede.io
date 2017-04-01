@@ -1,17 +1,15 @@
-class App extends React.Component {
-    render() {
-        return (
-            <div>
-                <Header />
-                <GamesList />
-            </div>
-        );
-    }
-}
+const header = <Header user={user} />;
 
-const app = <App user={user} />;
+const gamesList = <GamesList />;
 
+//header
 ReactDOM.render(
-    app,
-    document.getElementById('root')
+    header,
+    document.getElementById('header')
+);
+
+//initial content, rendered separately so it can be replaced separately
+ReactDOM.render(
+    gamesList,
+    document.getElementById('content')
 );
