@@ -1,7 +1,8 @@
 extends layout
 
 block content
-    div#root
+    div#header
+    div#content
     
 block javascript
     |<script>
@@ -11,21 +12,28 @@ block javascript
     |        email: `#{user.email}`
     |    }
     |</script>
+    
     //- script(src='https://code.jquery.com/jquery-3.1.1.min.js')
     script(src='https://code.jquery.com/jquery-3.1.1.js')
+    
     //- script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.js')
+    
     //- script(data-main='js/main', src='https://unpkg.com/react@15/dist/react.min.js')
     script(data-main='/scripts/main', src='https://unpkg.com/react@15/dist/react.js')
+    
     //- script(data-main='js/main', src='https://unpkg.com/react-dom@15/dist/react-dom.min.js')
     script(data-main='/scripts/main', src='https://unpkg.com/react-dom@15/dist/react-dom.js')
+    
     //Yes, I'm using babel on the client side. Yes, I know it's slow and horrible.
     //Sorry, I added react into this stack and don't feel like setting up webpack and the other
     //5000 things necessary to automate everything yet.
     //- script(data-main='js/main', src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js')
     script(data-main='/scripts/main', src='https://unpkg.com/babel-standalone@6.15.0/babel.js')
+    
+    script(data-main='/scripts/main',type="text/babel", src='/scripts/gamesList/gamesList.js')
+    script(data-main='/scripts/main',type="text/babel", src='/scripts/gamesList/gamesListTable.js')
+    script(data-main='/scripts/main',type="text/babel", src='/scripts/gamesList/gamesListItem.js')
+    
     script(data-main='/scripts/main',type="text/babel", src='/scripts/header.js')
-    script(data-main='/scripts/main',type="text/babel", src='/scripts/gamesList.js')
-    script(data-main='/scripts/main',type="text/babel", src='/scripts/gamesListTable.js')
-    script(data-main='/scripts/main',type="text/babel", src='/scripts/gamesListItem.js')
     script(data-main='/scripts/main',type="text/babel", src='/scripts/main.js')

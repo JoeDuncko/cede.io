@@ -30,5 +30,7 @@ class GamesList extends React.Component { // eslint-disable-line no-unused-vars
 
     makeNewGame() {
         console.log("hi");
+
+        ReactDOM.unmountComponentAtNode(document.getElementById('content'));
     }
 }
