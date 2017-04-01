@@ -1,22 +1,20 @@
 extends layout
 
 block content
-    div.container
-        div.row
-            div.col-sm-6.col-md-4.col-md-offset-4
-                #user
-                    h1.text-center.login-title Welcome #{user.firstName}. Check your details below:
-                        div
-                            ul
-                                li Username ---> #{user.username}
-                                li Email    ---> #{user.email}
-                        a(href='/signout', class='text-center new-account') Sign Out
-                        
-    div.container
-        div.row
-            div#root
-                        
+    div#root
+    
 block javascript
+    |<script>
+    | //not printing all of user so that it doesn't print the password hash
+    |    var user = {
+    |        username: `#{user.username}`,
+    |        email: `#{user.email}`
+    |    }
+    |</script>
+    //- script(src='https://code.jquery.com/jquery-3.1.1.min.js')
+    script(src='https://code.jquery.com/jquery-3.1.1.js')
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.js')
     //- script(data-main='js/main', src='https://unpkg.com/react@15/dist/react.min.js')
     script(data-main='/scripts/main', src='https://unpkg.com/react@15/dist/react.js')
     //- script(data-main='js/main', src='https://unpkg.com/react-dom@15/dist/react-dom.min.js')
@@ -26,4 +24,5 @@ block javascript
     //5000 things necessary to automate everything yet.
     //- script(data-main='js/main', src='https://unpkg.com/babel-standalone@6.15.0/babel.min.js')
     script(data-main='/scripts/main', src='https://unpkg.com/babel-standalone@6.15.0/babel.js')
+    script(data-main='/scripts/main',type="text/babel", src='/scripts/header.js')
     script(data-main='/scripts/main',type="text/babel", src='/scripts/main.js')

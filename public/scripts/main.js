@@ -1,4 +1,14 @@
+class App extends React.Component {
+    render() {
+        return (
+            <Header />
+        );
+    }
+}
+
+const app = <App user={user} />;
+
 ReactDOM.render(
-    <h1>Hello, world!</h1>,
-        document.getElementById('root')
+    app,
+    document.getElementById('root')
 );
