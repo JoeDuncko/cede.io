@@ -1,7 +1,10 @@
 class App extends React.Component {
     render() {
         return (
-            <Header />
+            <div>
+                <Header />
+                <GamesList />
+            </div>
         );
     }
 }

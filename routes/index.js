@@ -66,7 +66,7 @@ module.exports = function(passport) {
     router.get('/game/list', isAuthenticated, function(req, res) {
         res.setHeader('Content-Type', 'application/json');
 
-        Game.listGamesByUser('joe', function(err, games){
+        Game.listGamesByUser(req.user.username, function(err, games){
             res.send(JSON.stringify(games));
         });
     });
