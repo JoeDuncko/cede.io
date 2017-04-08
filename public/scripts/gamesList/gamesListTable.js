@@ -26,10 +26,10 @@ class GamesListTable extends React.Component { // eslint-disable-line no-unused-
     render(){
         const games = this.state.games;
 
+        //look up more about how this works!
         const listItems = games.map((game) =>
             // Correct! Key should be specified inside the array.
-            <GamesListItem key={game._id.toString()}
-                  value={game} />
+            <GamesListItem key={game._id.toString()} value={game} />
         );
 
         return (

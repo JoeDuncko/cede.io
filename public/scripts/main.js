@@ -1,15 +1,11 @@
-const header = <Header user={user} />;
-
-const gamesList = <GamesList />;
-
 //header
 ReactDOM.render(
-    header,
+    <Header user={user} />,
     document.getElementById('header')
 );
 
 //initial content, rendered separately so it can be replaced separately
 ReactDOM.render(
-    gamesList,
+    <GamesList />,
     document.getElementById('content')
 );
