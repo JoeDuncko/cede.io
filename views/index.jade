@@ -2,7 +2,13 @@ extends layout
 
 block content
     div.container
-        h1.header.center cede.io
+        div.center
+            
+        h1.header.center
+            a(href='http://cede.io')
+                img(src='/images/cedeiologo.png', style='width:200px', alt='Cede.io logo')
+                br
+                |cede.io
         div.row
             div.col.offset-s2.s8.offset-m4.m4
                 form(class='form-signin', action='/login', method='POST')

@@ -20,11 +20,16 @@ module.exports = function(passport) {
 
     /* GET login page. */
     router.get('/', function(req, res) {
-        // Display the Login page with any flash message, if any
-        res.render('index', {
-            title: 'cede.io',
-            message: req.flash('message')
-        });
+        //if logged in, redirect to game
+        if(req.user){
+            res.redirect('/game');
+        }else{
+            // Otherwise, display the Login page with any flash message, if any
+            res.render('index', {
+                title: 'cede.io',
+                message: req.flash('message')
+            });
+        }
     });
 
     /* Handle Login POST */
@@ -36,10 +41,15 @@ module.exports = function(passport) {
 
     /* GET Registration Page */
     router.get('/register', function(req, res) {
-        res.render('register', {
-            title: 'register | cede.io',
-            message: req.flash('message')
-        });
+        //if logged in, redirect to game
+        if(req.user){
+            res.redirect('/game');
+        }else{
+            res.render('register', {
+                title: 'register | cede.io',
+                message: req.flash('message')
+            });
+        }
     });
 
     /* Handle Registration POST */
