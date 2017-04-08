@@ -2,7 +2,11 @@ extends layout
 
 block content
     div.container
-        h1.header.center register
+        h1.header.center
+            a(href='/')
+                img(src='/images/cedeiologo.png', style='width:200px', alt='Cede.io logo')
+                br
+                |register
         div.row
             div.col.offset-s2.s8.offset-m4.m4
                 form(class='form-signin', action='/register', method='POST')
@@ -24,9 +28,6 @@ block content
                             label(for='email') email
                     div.row
                         button.black.btn.waves-effect.waves-light(type='submit') register
-            #message
-                if message
-                    h1.text-center.error-message #{message}
         div.row.center
             a(href='/') log in with an existing account
             
@@ -35,3 +36,9 @@ block javascript
     script(src='https://code.jquery.com/jquery-3.1.1.js')
     //- script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.js')
+    |//shows error message if there is one
+    |<script>
+    |if('#{message}'){
+    |    Materialize.toast('<i class="material-icons left">error_outline</i>#{message}', 8000)
+    |}
+    |</script>
