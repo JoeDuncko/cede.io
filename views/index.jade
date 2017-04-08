@@ -31,8 +31,8 @@ block javascript
     script(src='https://code.jquery.com/jquery-3.1.1.js')
     //- script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.js')
-    |//shows error message if there is one
     |<script>
+    |//shows error message if there is one
     |if('#{message}'){
     |    Materialize.toast('<i class="material-icons left">error_outline</i>#{message}', 40000)
     |}
