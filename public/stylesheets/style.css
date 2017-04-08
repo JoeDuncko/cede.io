@@ -1,5 +1,11 @@
+/* login page header */
 .header a {
   color: #000000; }
+
+nav .brand-logo .brand-logo-image {
+  height: 25px;
+  margin-right: 5px;
+  margin-left: 15px; }
 
 /* form stuffs */
 /* label color */

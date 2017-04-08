@@ -13,37 +13,6 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var expressSession = require('express-session');
 
-// var sass = require('node-sass');
-// sass.render(
-//     {
-//         file: './public/stylesheets/style.sass',
-//         outputStyle: 'compressed',
-//         outFile: './public/stylesheets/style.css',
-//         sourceMap: true // or an absolute or relative (to outFile) path
-//     },
-//     function(err, result) {
-//         if(err){
-//             console.log('sass broke', err);
-//         }
-//         if(!err){
-//             console.log('sass worked', result);
-//
-//             // No errors during the compilation, write this result on the disk
-//             fs.writeFile('./public/stylesheets/style.css', result.css, function(err){
-//                 if(!err){
-//                     console.log('Successfully wrote style.css');
-//                 }
-//             });
-//             fs.writeFile('./public/stylesheets/style.css.map', result.map, function(err){
-//                 if(!err){
-//                     console.log('Successfully wrote style.css.map');
-//                 }
-//             });
-//         }
-//
-//     }
-// );
-
 var mongoose = require('mongoose');
 //mongodb - this will need changed when not run locally
 mongoose.connect(process.env.MONGODB_URI);
@@ -83,12 +52,6 @@ app.use(flash());
 var initPassport = require('./passport/init');
 initPassport(passport);
 
-app.use(require('node-sass-middleware')({
-    src: path.join(__dirname, 'public'),
-    dest: path.join(__dirname, 'public'),
-    indentedSyntax: true,
-    sourceMap: true
-}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 //router w/ auth support

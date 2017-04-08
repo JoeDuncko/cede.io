@@ -19,6 +19,11 @@ http://cedegame.com/ (the game itself) is hosted via Heroku and worked on in the
 - Go back to the terminal that's inside the repository, and run `npm start`
 - cede.io should now be running on localhost:3000
 
+## Notes
+
+- To make SASS files, run `make sass` while you have `node-sass` installed globally
+    - Install `node-sass` globally via `npm install node-sass -g`
+
 ## To install on Heroku
 
 - Create a Heroku app

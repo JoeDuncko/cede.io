@@ -3,7 +3,9 @@ class Header extends React.Component { // eslint-disable-line no-unused-vars
         return(
             <nav>
                 <div className="nav-wrapper black">
-                    <a className="brand-logo" href="/">cede.io</a>
+                    <a className="brand-logo" href="/">
+                        <img className="brand-logo-image" src="/images/cedeiologowhite.png"></img>cede.io
+                        </a>
                     <ul id="nav-mobile" className="right">
                         <li><a onClick={this.toProfile} href="#">{user.username}</a></li>
                     </ul>
