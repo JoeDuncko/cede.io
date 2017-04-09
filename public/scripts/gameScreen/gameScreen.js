@@ -1,5 +1,3 @@
-//not currently including this in game.jade
-
 class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
     constructor(props) {
         super(props);
@@ -20,19 +18,14 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
         console.log("this.state", this.state)
         return(
             <div className="container">
-                <div className="row section">
+                <div className="row">
                     <div className="col s12">
-                        "hi"
+                        <GameScreenHeader />
                     </div>
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        {/*<GameScreenHeader />*/}
-                    </div>
-                </div>
-                <div className="row">
-                    <div className="col s12">
-                        {/*<GameScreenBody />*/}
+                        <GameScreenBody />
                     </div>
                 </div>
             </div>
