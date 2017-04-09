@@ -20,7 +20,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
             <div className="container">
                 <div className="row">
                     <div className="col s12">
-                        <GameScreenHeader />
+                        <GameScreenHeader round={this.state.round} startDate={this.state.startDate} resources={this.state.resources} />
                     </div>
                 </div>
                 <div className="row">

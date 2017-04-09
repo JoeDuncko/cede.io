@@ -17,6 +17,42 @@ var mongoose = require('mongoose');
 //mongodb - this will need changed when not run locally
 mongoose.connect(process.env.MONGODB_URI);
 
+//schedule to update all games every minute on the 0th second
+var schedule = require('node-schedule');
+var Game = require('./models/game');
+schedule.scheduleJob('0 * * * * *', function(){
+    console.log("scheduled job is running")
+
+    Game.getActiveGames(function(err, games){
+        var activeGames = games;
+
+        //for all active games
+        for (var i = 0; i < activeGames.length; i++){
+            //mark them as done if their base is dead
+            if (activeGames[i].baseHealth === 0){
+                Game.getGameById(activeGames[i]._id, function (err, game){
+                    if (err) {
+                        console.log(err);
+                    }
+
+                    game[0].isGameOver = true;
+
+                    game[0].save(function (err, updatedGame){
+                        if (err) {
+                            console.log(err);
+                        }
+                    });
+                });
+            } else{
+                //otherwise move the pieces that need moved
+            }
+
+
+        }
+
+    });
+});
+
 //init express app
 var app = express();
 

@@ -86,10 +86,19 @@ gameSchema.statics.listGamesByUser = function(ownerUsername, callback) {
     );
 };
 
-gameSchema.statics.getGameById = function(gameId, callback) {    
+gameSchema.statics.getGameById = function(gameId, callback) {
     return this.find(
         {
             _id: gameId
+        },
+        callback
+    );
+};
+
+gameSchema.statics.getActiveGames = function(callback) {
+    return this.find(
+        {
+            isGameOver: false
         },
         callback
     );
