@@ -3,7 +3,7 @@ class Header extends React.Component { // eslint-disable-line no-unused-vars
         return(
             <nav>
                 <div className="nav-wrapper black">
-                    <a className="brand-logo" href="/">
+                    <a className="brand-logo" href="#" onClick={this.rerenderGamesList}>
                         <img className="brand-logo-image" src="/images/cedeiologowhite.png"></img>cede.io
                         </a>
                     <ul id="nav-mobile" className="right">
@@ -16,8 +16,17 @@ class Header extends React.Component { // eslint-disable-line no-unused-vars
 
     toProfile(event){
         event.preventDefault();
-        console.log("go to profile");
+        console.log('go to profile');
 
-        ReactDOM.unmountComponentAtNode(document.getElementById('content'));
+        // ReactDOM.unmountComponentAtNode(document.getElementById('content'));
+    }
+
+    rerenderGamesList(event){
+        event.preventDefault();
+
+        ReactDOM.render(
+            <GamesList />,
+            document.getElementById('content')
+        );
     }
 }

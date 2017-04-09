@@ -6,8 +6,6 @@ class GamesListItem extends React.Component { // eslint-disable-line no-unused-v
         } else{
             props.value.isGameOverText = 'Active';
         }
-
-        console.log(props);
     }
 
     render() {
