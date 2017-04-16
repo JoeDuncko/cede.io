@@ -28,21 +28,31 @@ var gameloop = schedule.scheduleJob('0 * * * * *', function(){
 
             //for each enemy
             for(var k = 0; k < activeGames[i].enemies.length; k++){
+                //have to make a copy of the grid as running finder kills it for some reason. See docs.
+                var usableCopyOfGrid = grid.clone();
+
                 //figure out that enemy's path to the center
-                var path = finder.findPath(activeGames[i].enemies[k].positionX, activeGames[i].enemies[k].positionY, 3, 3, grid);
+                var path = finder.findPath(activeGames[i].enemies[k].positionX, activeGames[i].enemies[k].positionY, 2, 2, usableCopyOfGrid);
                 //note: path[0] is your current position, so path[1] is the next positon
+                console.log('path', path);
 
                 if(path.length === 0){
+                    //TODO: For some reason some enemies aren't moving. Is it because they are moving backwards or something?
+
                     // if there is no way to move to get to the center, don't do anything
                     // intentionally left empty
                     console.log('path length is 0!')
-                } else if(path[1] === [2][2]){
+                } else if(path[1][0] === 2 && path[1][1] === 2){
+                    // TODO: this seems to be running even when it shouldn't - is diagnal on my default?
+
                     // else, if the enemy is already moved within range of a target
                     // (currently only the main building, hard coded at [2][2]),
                     // have it attack said target
                     activeGames[i].baseHealth = activeGames[i].baseHealth - enemyCloseRange.damage;
                     console.log('attacked main building!')
-                } else {
+                } else if(path.length === 1){
+                    console.log('THIS SHOULD NEVER HAPPEN, it means that an enemy is probably ON the base', path);
+                } else{
                     // else, the enemy should move toward the target
                     console.log('should move to', path[1][0], path[1][1]);
 
@@ -60,12 +70,11 @@ var gameloop = schedule.scheduleJob('0 * * * * *', function(){
             }
 
             //mark the game as done if their base is dead
-            if (activeGames[i].baseHealth === 0){
+            if (activeGames[i].baseHealth <= 0){
                 activeGames[i].isGameOver = true;
             } else{
                 // If the game isn't done
                 // then add a new enemy to the board
-
 
                 //choose x and y where enemy should spawn
                 //currently only spawning in corners for no good reason
@@ -73,13 +82,13 @@ var gameloop = schedule.scheduleJob('0 * * * * *', function(){
                 var positionY;
 
                 if(Math.random() >= 0.5){
-                    positionX = 1;
+                    positionX = 0;
                 } else{
                     positionX = modeSurvival.mapSize - 1;
                 }
 
                 if(Math.random() >= 0.5){
-                    positionY = 1;
+                    positionY = 0;
                 } else{
                     positionY = modeSurvival.mapSize - 1;
                 }
@@ -116,7 +125,7 @@ var gameloop = schedule.scheduleJob('0 * * * * *', function(){
             });
         }
     });
-    
+
     //Now that the game loop has run, send a socket.io message to all clients with their updated info
     //TODO
 });
