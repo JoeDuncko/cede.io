@@ -4,6 +4,10 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
 
         //init state
         this.state = {};
+
+        //TODO: test that when the state changes that gameScreenBody is completely rerendered
+        // if that's not the case, then I'll need to tie each tile to a react module
+        // which is probably the better way to autogenerate the body, but I'm not doing it yet
     }
 
     componentDidMount() {
@@ -25,7 +29,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
                 </div>
                 <div className="row">
                     <div className="col s12">
-                        <GameScreenBody />
+                        <GameScreenBody enemies={this.state.enemies}/>
                     </div>
                 </div>
             </div>
@@ -65,6 +69,8 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
             })
             .then(response => {
                 gameData = response[0];
+
+                console.log(gameData);
 
                 this.setState(gameData);
             })
