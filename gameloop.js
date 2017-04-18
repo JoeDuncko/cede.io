@@ -19,8 +19,16 @@ var gameloop = schedule.scheduleJob('0 * * * * *', function(){
             //initialize finder algorithm
             var finder = new Pathfinding.AStarFinder();
 
-            //for each enemy, populate the grid with enemy locations - mark them as "unwalkable"
-            //TODO: do this for towers too
+            //TODO: there is a huge glitch where if you surround your base in towers you'll win. What do? Have enemies attack towers that have attacked them probably?
+            // Or just not put the towers as unwalkable and if an enemy is about to land on one they attack it instead?
+
+            //TODO: Have each tower attack a near enemy here
+
+            //TODO: if that enemy died, -1 their helath
+
+            //TODO: Go through enemy list, remove all enemies with 0 health from list
+
+            //for each enemy that's left, populate the grid with enemy locations - mark them as "unwalkable"
             for(var j = 0; j < activeGames[i].enemies.length; j++){
                 console.log('set up grid', activeGames[i].enemies[j].positionX, activeGames[i].enemies[j].positionY);
                 grid.setWalkableAt(activeGames[i].enemies[j].positionX, activeGames[i].enemies[j].positionY, false);
@@ -37,14 +45,11 @@ var gameloop = schedule.scheduleJob('0 * * * * *', function(){
                 console.log('path', path);
 
                 if(path.length === 0){
-                    //TODO: For some reason some enemies aren't moving. Is it because they are moving backwards or something?
-
                     // if there is no way to move to get to the center, don't do anything
                     // intentionally left empty
                     console.log('path length is 0!')
+                //TODO: } else if (enemy is about to step on a tower) { have it attack said tower }
                 } else if(path[1][0] === 2 && path[1][1] === 2){
-                    // TODO: this seems to be running even when it shouldn't - is diagnal on my default?
-
                     // else, if the enemy is already moved within range of a target
                     // (currently only the main building, hard coded at [2][2]),
                     // have it attack said target
