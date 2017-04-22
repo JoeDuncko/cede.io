@@ -4,7 +4,7 @@ class GameRowItem extends React.Component { // eslint-disable-line no-unused-var
     }
 
     render() {
-        console.log("render game row item", this.props.value);
+        console.log('render game row item', this.props.value);
 
         return (
             <td className="gameTile">HI</td>

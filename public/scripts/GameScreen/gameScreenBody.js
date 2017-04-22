@@ -18,7 +18,7 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
 
     render() {
         //if there are enemies
-        console.log("this.props.enemies", this.props.enemies);
+        console.log('this.props.enemies', this.props.enemies);
         if (
             this.props.enemies &&
             this.props.enemies.length > 0
