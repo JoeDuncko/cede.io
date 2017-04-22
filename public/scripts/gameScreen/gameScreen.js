@@ -11,6 +11,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
     }
 
     componentDidMount() {
+        console.log(this.props)
         if (this.props.isNewGame){
             this.makeNewGame();
         } else if (this.props.gameId){
@@ -70,7 +71,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
             .then(response => {
                 gameData = response[0];
 
-                console.log(gameData);
+                console.log("gameData", gameData);
 
                 this.setState(gameData);
             })
