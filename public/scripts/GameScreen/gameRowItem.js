@@ -11,21 +11,21 @@ class GameRowItem extends React.Component { // eslint-disable-line no-unused-var
             this.props.value.type === 'Enemy'
         ){
             return (
-                <td className="gameTile">Enemy</td>
+                <td className="gameTile"><img src="/images/enemy.png" style={{width: '100%'}}></img></td>
             );
         } else if(
             this.props.value &&
             this.props.value.type === 'Tower'
         ){
             return (
-                <td className="gameTile">Tower</td>
+                <td className="gameTile"><img src="/images/tower.png" style={{width: '100%'}}></img></td>
             );
         }else if(
             this.props.value &&
             this.props.value.type === 'Base'
         ){
             return (
-                <td className="gameTile">Base</td>
+                <td className="gameTile"><img src="/images/base.png" style={{width: '100%'}}></img></td>
             );
         }else {
             return (
