@@ -30,17 +30,18 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 /**
- * Sets up sockets
+ * starts socket.io
  */
 
 var io = require('socket.io')(server);
+require('../realtime/realtime')(io);
 
-io.on('connection', function (socket) {
-    socket.emit('news', { hello: 'world' });
-    socket.on('my other event', function (data) {
-        console.log(data);
-    });
-});
+
+/**
+ * starts gameloop
+ */
+
+require('../gameloop')(io);
 
 /**
  * Normalize a port into a number, string, or false.

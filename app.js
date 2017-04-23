@@ -19,9 +19,6 @@ mongoose.Promise = global.Promise;
 //mongodb - this will need changed when not run locally
 mongoose.connect(process.env.MONGODB_URI);
 
-//starts gameloop
-require('./gameloop');
-
 //init express app
 var app = express();
 
