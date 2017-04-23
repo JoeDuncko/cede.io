@@ -4,11 +4,11 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
 
         // creates the boardArray state, which represents the board, and fills it with nulls
         this.state = {
-            boardArray: new Array(5).fill(null)
+            boardArray: new Array(5).fill({type:'none'})
         };
 
         for (var i = 0; i < this.state.boardArray.length; i++){
-            this.state.boardArray[i] = new Array(5).fill(null);
+            this.state.boardArray[i] = new Array(5).fill({type:'none'});
         }
     }
 
@@ -17,6 +17,12 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
     }
 
     render() {
+        //reset enemy list - this is kinda bad to do, but oh well
+        //maybe I should just have the server send the whole board? :/
+        for (var i = 0; i < this.state.boardArray.length; i++){
+            this.state.boardArray[i] = new Array(5).fill({type:'none'});
+        }
+        
         //if there are enemies
         console.log('this.props.enemies', this.props.enemies);
         if (
