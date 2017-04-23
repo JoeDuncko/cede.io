@@ -17,6 +17,12 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
         } else if (this.props.gameId){
             this.loadPreviousGameData(this.props.gameId);
         }
+
+        var socket = io.connect('/');
+        socket.on('news', function (data) {
+            console.log(data);
+            socket.emit('my other event', { my: 'data' });
+        });
     }
 
     render() {

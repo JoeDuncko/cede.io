@@ -41,6 +41,7 @@
     "globals": {
         "ReactDOM": true,
         "React": true,
-        "user": true
+        "user": true,
+        "io": true
     }
 }
