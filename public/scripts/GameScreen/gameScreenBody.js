@@ -22,7 +22,7 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
         for (var i = 0; i < this.state.boardArray.length; i++){
             this.state.boardArray[i] = new Array(5).fill({type:'none'});
         }
-        
+
         //if there are enemies
         console.log('this.props.enemies', this.props.enemies);
         if (

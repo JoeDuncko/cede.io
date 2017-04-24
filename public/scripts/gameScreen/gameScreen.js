@@ -40,7 +40,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
         let gameOver = null;
 
         if (this.state.isGameOver) {
-            gameOver = <div className="row"><div className="col s12">GAME OVER</div></div>
+            gameOver = <div className="row"><div className="col s12">GAME OVER</div></div>;
         }
 
         return(
@@ -52,7 +52,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
                 </div>
 
                 {gameOver}
-                
+
                 <div className="row">
                     <div className="col s12">
                         <GameScreenBody enemies={this.state.enemies}/>
