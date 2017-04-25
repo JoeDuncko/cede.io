@@ -47,6 +47,7 @@ GitHub - Git repository hosting
 
 ## Folder structure
 
+```
 ├── LICENSE - Apache license file
 ├── Makefile - Has some tools for compiling SASS
 ├── README.md - Contains getting started information
@@ -81,7 +82,7 @@ GitHub - Git repository hosting
 ├── source-images - All images used in the game, before being processed to be used on the web
 ├── views - All views for the backend to present
 └── writeup.md - This text
-
+```
 ## Setting up a cede.io development environment, on Mac with Homebrew
 
 - Install homebrew http://brew.sh/
