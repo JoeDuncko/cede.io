@@ -33,10 +33,20 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
             console.log('game loop finished! Pull in the new data by doing a get', data);
             self.loadPreviousGameData(self.state._id);
         });
+
+        //countdown
+        this.interval = setInterval(function(){
+            if (self.state.secondsRemaining <= 0) {
+                clearInterval(self.interval);
+            }
+            self.setState({secondsRemaining: self.state.secondsRemaining - 1});
+        }, 1000);
     }
 
     render() {
         console.log('this.state', this.state);
+        let secondsRemaining = 60 - new Date().getSeconds();
+
         let gameOver = null;
 
         if (this.state.isGameOver) {
@@ -47,7 +57,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
             <div className="container">
                 <div className="row">
                     <div className="col s12">
-                        <GameScreenHeader round={this.state.round} startDate={this.state.startDate} resources={this.state.resources} />
+                        <GameScreenHeader round={this.state.round} startDate={this.state.startDate} resources={this.state.resources} secondsRemaining={secondsRemaining} />
                     </div>
                 </div>
 
@@ -81,6 +91,10 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
             .catch(function(error) {
                 console.log(error);
             });
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.interval);
     }
 
     loadPreviousGameData(gameId){

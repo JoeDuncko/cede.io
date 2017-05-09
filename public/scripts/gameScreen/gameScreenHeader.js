@@ -11,7 +11,9 @@ class GameScreenHeader extends React.Component { // eslint-disable-line no-unuse
                 <tbody>
                     <tr>
                         <td>Round: {this.props.round}</td>
-                        <td><i className="material-icons">av_timer</i> {this.props.startDate}</td>
+                        <td><i className="material-icons">av_timer</i>
+                            <GameCountdown secondsRemaining={this.props.secondsRemaining} />
+                        </td>
                         <td><i className="material-icons">shopping_basket</i> {this.props.resources}</td>
                     </tr>
                 </tbody>
