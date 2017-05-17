@@ -65,7 +65,7 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
 
                 <div className="row">
                     <div className="col s12">
-                        <GameScreenBody enemies={this.state.enemies}/>
+                        <GameScreenBody enemies={this.state.enemies} baseHealth={this.state.baseHealth}/>
                     </div>
                 </div>
             </div>

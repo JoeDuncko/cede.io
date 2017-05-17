@@ -43,12 +43,14 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
             console.log(this.state.boardArray);
         }
 
+        console.log('this.props', this.props);
         // shove the base in the center, because it doesn't come from the server, because I suck
         if (!this.state.boardArray[2]){
             this.state.boardArray[2] = [];
         }
         this.state.boardArray[2][2] = {
-            type: 'Base'
+            type: 'Base',
+            health: this.props.baseHealth
         };
 
         //TODO: do the same for towers

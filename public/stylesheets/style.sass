@@ -59,17 +59,39 @@ nav .brand-logo .brand-logo-image
 
 /* game board */
 .gameBoard
-  width: initial
-  border: 6px solid black
-  border-radius: 10px
-  border-collapse: separate
-  border-spacing: 3px
-  margin: auto
+    width: initial
+    border: 6px solid black
+    border-radius: 10px
+    border-collapse: separate
+    border-spacing: 3px
+    margin: auto
 
 .gameTile
-  border: 6px solid black
-  height: 30px
-  width: 30px
-  padding: 0px
-  text-align: center
-  line-height: 0px
+    border: 6px solid black
+    height: 60px
+    width: 60px
+    padding: 0px
+    text-align: center
+    line-height: 0px
+
+.gameTileInner
+    position: relative
+    height: 100%
+    width: 100%
+    &.empty:hover
+        background-color: #cccccc
+        cursor: pointer
+
+.gameTileImage
+    width: 100%
+
+.healthHalo
+    position: absolute
+    top: -3px
+    right: -3px
+    width: 15px
+    height: 15px
+    background-color: #cccccc
+    border-radius: 15px
+    line-height: 1.25
+    font-size: 12px

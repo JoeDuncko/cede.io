@@ -11,27 +11,48 @@ class GameRowItem extends React.Component { // eslint-disable-line no-unused-var
             this.props.value.type === 'Enemy'
         ){
             return (
-                <td className="gameTile"><img src="/images/enemy.png" style={{width: '100%'}}></img></td>
+                <td className="gameTile">
+                    <div className="gameTileInner">
+                        <span className="healthHalo">{this.props.value.health}</span>
+                        <img className="gameTileImage" src="/images/enemy.png"></img>
+                    </div>
+                </td>
             );
         } else if(
             this.props.value &&
             this.props.value.type === 'Tower'
         ){
             return (
-                <td className="gameTile"><img src="/images/tower.png" style={{width: '100%'}}></img></td>
+                <td className="gameTile">
+                    <div className="gameTileInner">
+                        <span className="healthHalo">{this.props.value.health}</span>
+                        <img className="gameTileImage" src="/images/tower.png"></img>
+                    </div>
+                </td>
             );
         }else if(
             this.props.value &&
             this.props.value.type === 'Base'
         ){
             return (
-                <td className="gameTile"><img src="/images/base.png" style={{width: '100%'}}></img></td>
+                <td className="gameTile">
+                    <div className="gameTileInner">
+                        <span className="healthHalo">{this.props.value.health}</span>
+                        <img className="gameTileImage" src="/images/base.png"></img>
+                    </div>
+                </td>
             );
         }else {
             return (
-                <td className="gameTile"></td>
+                <td className="gameTile">
+                    <div className="gameTileInner empty" onClick={this.showPlaceTowerButton}></div>
+                </td>
             );
         }
-
     }
+
+    showPlaceTowerButton() {
+        console.log("hi");
+    }
+
 }

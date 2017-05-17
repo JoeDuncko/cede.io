@@ -80,10 +80,32 @@ nav .brand-logo .brand-logo-image {
 
 .gameTile {
   border: 6px solid black;
-  height: 30px;
-  width: 30px;
+  height: 60px;
+  width: 60px;
   padding: 0px;
   text-align: center;
   line-height: 0px; }
+
+.gameTileInner {
+  position: relative;
+  height: 100%;
+  width: 100%; }
+  .gameTileInner.empty:hover {
+    background-color: #cccccc;
+    cursor: pointer; }
+
+.gameTileImage {
+  width: 100%; }
+
+.healthHalo {
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  width: 15px;
+  height: 15px;
+  background-color: #cccccc;
+  border-radius: 15px;
+  line-height: 1.25;
+  font-size: 12px; }
 
 /*# sourceMappingURL=style.css.map */
