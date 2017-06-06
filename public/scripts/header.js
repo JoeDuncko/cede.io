@@ -7,7 +7,7 @@ class Header extends React.Component { // eslint-disable-line no-unused-vars
                         <img className="brand-logo-image" src="/images/cedeiologowhite.png"></img>cede.io
                         </a>
                     <ul id="nav-mobile" className="right">
-                        <li>{user.username}</li>
+                         <li><a>{user.username}</a></li>
                     </ul>
                 </div>
             </nav>
