@@ -4,7 +4,6 @@ class GameRow extends React.Component { // eslint-disable-line no-unused-vars
     }
 
     render() {
-        console.log('render gameRow', this.props.value);
         const rowArray = this.props.value;
 
         // look up more about how this works!

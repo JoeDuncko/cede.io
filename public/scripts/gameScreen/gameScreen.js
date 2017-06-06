@@ -11,7 +11,6 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
     }
 
     componentDidMount() {
-        console.log(this.props);
         //Logic to create or load a game
         if (this.props.isNewGame){
             this.makeNewGame();
@@ -25,12 +24,9 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
         //TODO: make it not need self=this
         var self = this;
 
-        socket.on('welcome', function (data) {
-            console.log(data);
-        });
 
-        socket.on('gameLoopFinished', function (data) {
-            console.log('game loop finished! Pull in the new data by doing a get', data);
+        socket.on('gameLoopFinished', function () {
+            //TODO: move to using data given by the this socket instead of from making a new GET call
             self.loadPreviousGameData(self.state._id);
         });
 
@@ -44,7 +40,6 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
     }
 
     render() {
-        console.log('this.state', this.state);
         let secondsRemaining = 60 - new Date().getSeconds();
 
         let gameOver = null;
@@ -109,8 +104,6 @@ class GameScreen extends React.Component { // eslint-disable-line no-unused-vars
             })
             .then(response => {
                 gameData = response[0];
-
-                console.log('gameData', gameData);
 
                 this.setState(gameData);
             })

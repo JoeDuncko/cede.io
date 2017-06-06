@@ -4,7 +4,7 @@ var router = express.Router();
 var Game = require('../models/game');
 var User = require('../models/user');
 
-var survivalMode = require('../entities/modes/mode_survival');
+// var survivalMode = require('../entities/modes/mode_survival');
 
 var isAuthenticated = function(req, res, next) {
     // if user is authenticated in the session, call the next() to call the next request handler

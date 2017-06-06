@@ -24,26 +24,22 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
         }
 
         //if there are enemies
-        console.log('this.props.enemies', this.props.enemies);
         if (
             this.props.enemies &&
             this.props.enemies.length > 0
         ){
             for(var i = 0; i < this.props.enemies.length; i++){
                 //put them in a 2d array
-                console.log('tower location', this.props.enemies[i].positionX, this.props.enemies[i].positionY);
 
                 //init x position of 2d array if there is none http://stackoverflow.com/questions/17534323/cannot-set-property-0-of-2d-array
                 if (!this.state.boardArray[this.props.enemies[i].positionX]){
                     this.state.boardArray[this.props.enemies[i].positionX] = [];
                 }
+
                 this.state.boardArray[this.props.enemies[i].positionX][this.props.enemies[i].positionY] = this.props.enemies[i];
             }
-
-            console.log(this.state.boardArray);
         }
 
-        console.log('this.props', this.props);
         // shove the base in the center, because it doesn't come from the server, because I suck
         if (!this.state.boardArray[2]){
             this.state.boardArray[2] = [];
@@ -54,7 +50,6 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
         };
 
         //TODO: do the same for towers
-
 
         const boardArray = this.state.boardArray;
 

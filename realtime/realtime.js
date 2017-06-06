@@ -1,9 +1,8 @@
 var realtime = function(io){
     io.on('connection', function (socket) {
-        socket.emit('welcome', { hello: 'world' });
-
         //place tower
         socket.on('createTower', function (data) {
+            //TODO: make it so this places towers
             console.log('createTower', data);
         });
     });

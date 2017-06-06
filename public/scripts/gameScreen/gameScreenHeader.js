@@ -1,7 +1,6 @@
 class GameScreenHeader extends React.Component { // eslint-disable-line no-unused-vars
     constructor(props) {
         super(props);
-        console.log(props);
     }
 
     render() {

@@ -4,8 +4,6 @@ class GameRowItem extends React.Component { // eslint-disable-line no-unused-var
     }
 
     render() {
-        console.log('render game row item', this.props.value);
-
         if(
             this.props.value &&
             this.props.value.type === 'Enemy'
@@ -52,6 +50,7 @@ class GameRowItem extends React.Component { // eslint-disable-line no-unused-var
     }
 
     showPlaceTowerButton() {
+        //TODO
         console.log("hi");
     }
 
