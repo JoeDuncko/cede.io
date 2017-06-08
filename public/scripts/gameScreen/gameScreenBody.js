@@ -4,15 +4,14 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
 
         // creates the boardArray state, which represents the board, and fills it with nulls
         this.state = {
-            boardArray: new Array(5).fill({type:'none'})
+            boardArray: new Array(5).fill(new Array(5).fill({type:'none'}))
         };
-
-        for (var i = 0; i < this.state.boardArray.length; i++){
-            this.state.boardArray[i] = new Array(5).fill({type:'none'});
-        }
     }
 
     render() {
+
+        //TODO: do this the other way around. Iterate over the current boardArray, see if there should be an enemy or tower or none there. If so, update just that space
+
         //reset board - this is kinda bad to do, but oh well
         //maybe I should just have the server send the whole board? :/
         for (var i = 0; i < this.state.boardArray.length; i++){
