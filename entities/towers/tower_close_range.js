@@ -1,6 +1,7 @@
 var towerCloseRange = {
     name: 'Tower',
     damage: 1,
+    maxHealth: 3,
     cost: 5,
     range: 1
 };

@@ -94,6 +94,11 @@ nav .brand-logo .brand-logo-image {
     background-color: #cccccc;
     cursor: pointer; }
 
+.gameTileInnerSelected {
+  background-color: #00e676; }
+  .gameTileInnerSelected.empty:hover {
+    background-color: #69f0ae; }
+
 .gameTileImage {
   width: 100%; }
 

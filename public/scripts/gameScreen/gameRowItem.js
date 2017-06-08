@@ -40,18 +40,20 @@ class GameRowItem extends React.Component { // eslint-disable-line no-unused-var
                     </div>
                 </td>
             );
+        }else if(
+            this.props.value.selected
+        ){
+            return (
+                <td className="gameTile">
+                    <div className="gameTileInner gameTileInnerSelected empty" onClick={this.props.setSelectedSpace.bind(this, this.props.value.positionX, this.props.value.positionY)}></div>
+                </td>
+            );
         }else {
             return (
                 <td className="gameTile">
-                    <div className="gameTileInner empty" onClick={this.showPlaceTowerButton}></div>
+                    <div className="gameTileInner empty" onClick={this.props.setSelectedSpace.bind(this, this.props.value.positionX, this.props.value.positionY)}></div>
                 </td>
             );
         }
     }
-
-    showPlaceTowerButton() {
-        //TODO
-        console.log("hi");
-    }
-
 }

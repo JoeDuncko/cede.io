@@ -12,15 +12,24 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
         }
     }
 
-    componentDidMount() {
-
-    }
-
     render() {
         //reset enemy list - this is kinda bad to do, but oh well
         //maybe I should just have the server send the whole board? :/
         for (var i = 0; i < this.state.boardArray.length; i++){
-            this.state.boardArray[i] = new Array(5).fill({type:'none'});
+            this.state.boardArray[i] = new Array(5);
+
+            for (var k = 0; k < this.state.boardArray.length; k++){
+                var selected = false;
+                if(i === this.props.selectedSpaceY && k === this.props.selectedSpaceX){
+                    selected = true;
+                }
+                this.state.boardArray[i][k] = {
+                    type:'none',
+                    positionX: k,
+                    positionY: i,
+                    selected: selected
+                };
+            }
         }
 
         //if there are enemies
@@ -56,7 +65,7 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
         // look up more about how this works!
         const boardRows = boardArray.map((row, index) =>
             // Correct! Key should be specified inside the array.
-            <GameRow key={index.toString()} value={row} />
+            <GameRow key={index.toString()} value={row} selectedSpaceX={this.props.selectedSpaceX} selectedSpaceY={this.props.selectedSpaceY} setSelectedSpace={this.props.setSelectedSpace} />
         );
 
         return (
