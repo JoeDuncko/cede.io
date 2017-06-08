@@ -13,7 +13,7 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
     }
 
     render() {
-        //reset enemy list - this is kinda bad to do, but oh well
+        //reset board - this is kinda bad to do, but oh well
         //maybe I should just have the server send the whole board? :/
         for (var i = 0; i < this.state.boardArray.length; i++){
             this.state.boardArray[i] = new Array(5);
@@ -46,6 +46,26 @@ class GameScreenBody extends React.Component { // eslint-disable-line no-unused-
                 }
 
                 this.state.boardArray[this.props.enemies[i].positionX][this.props.enemies[i].positionY] = this.props.enemies[i];
+            }
+        }
+
+        //if there are towers
+        console.log('this.props', this.props)
+        console.log('do we got towers?', this.props.towers);
+        if (
+            this.props.towers &&
+            this.props.towers.length > 0
+        ){
+
+            for(var i = 0; i < this.props.towers.length; i++){
+                //put them in a 2d array
+
+                //init x position of 2d array if there is none http://stackoverflow.com/questions/17534323/cannot-set-property-0-of-2d-array
+                if (!this.state.boardArray[this.props.towers[i].positionX]){
+                    this.state.boardArray[this.props.towers[i].positionX] = [];
+                }
+
+                this.state.boardArray[this.props.towers[i].positionX][this.props.towers[i].positionY] = this.props.towers[i];
             }
         }
 

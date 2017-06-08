@@ -12,6 +12,9 @@ var realtime = function(io){
                 console.log(game);
                 console.log(game.towers);
 
+                //TODO Don't let towers be placed on top of towers
+                //TODO Don't let people place towers without taking a resource
+
                 game[0].towers.push({
                     type: towerCloseRange.name,
                     health: towerCloseRange.maxHealth,
