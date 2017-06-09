@@ -41,6 +41,7 @@ class GameRowItem extends React.Component { // eslint-disable-line no-unused-var
                 </td>
             );
         }else if(
+            this.props.value &&
             this.props.value.selected
         ){
             return (
